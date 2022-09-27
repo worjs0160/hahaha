@@ -1,0 +1,29 @@
+.vscode
+.DS_Store
+*/DS_Store
+
+# venv 파일
+env/
+
+# frontend 파일
+frontend/node_modules/
+frontend/babel.config.js
+frontend/package-lock.json
+frontend/.gitignore
+frontend/README.md
+
+# backend 파일
+backend/*/__pycache__/
+backend/*/migrations/__pycache__/
+backend/*/management/__pycache__/
+backend/*/migrations/*0*.py
+backend/db.sqlite3
+backend/logs/
+backend/media/
+backend/.env
+backend/logs
+backend/media
+
+memo.txt
+
+
