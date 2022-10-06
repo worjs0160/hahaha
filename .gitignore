@@ -1,0 +1,20 @@
+.vscode
+.DS_Store
+*/DS_Store
+
+
+# venv 파일
+env/
+
+
+# hahaha 파일
+hahaha/*/__pycache__/
+hahaha/*/migrations/__pycache__/
+hahaha/*/management/__pycache__/
+hahaha/*/migrations/*0*.py
+hahaha/db.sqlite3
+hahaha/logs/
+hahaha/media/
+hahaha/.env
+hahaha/logs
+hahaha/media
