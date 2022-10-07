@@ -17,6 +17,11 @@ import AdminSignup from "./views/auth/signup/AdminSignup";
 import Complete from "./views/auth/signup/Complete";
 import ChatRoom from "./views/chat/ChatRoom.vue";
 import MainLayout from "./components/layout/MainLayout";
+
+import Contributor from "./components/layout/Contributor";
+import Manager from "./components/layout/Manager";
+import signUp from "./views/auth/signUp";
+
 import NoDashBoardLayout from "./components/layout/NoDashBoardLayout";
 import store from "./store/store";
 
@@ -44,10 +49,10 @@ const routes = [
         component: Login,
       },
       {
-        // 회원가입 페이지 (/auth/signup)
-        path: "signup/",
-        name: "Signup",
-        component: Signup,
+        // hahaha 회원가입 페이지 (/auth/signup)
+        path: "signUp/",
+        name: "signUp",
+        component: signUp,
       },
       {
         // 훈련기관 회원가입 페이지 (/auth/team)
@@ -136,6 +141,18 @@ const routes = [
     name: "Home",
     component: MainLayout,
     beforeEnter: requireAuth(),
+  },
+  {
+    //테스트 플랫폼
+    path: "/Contributor",
+    name: "Contributor",
+    component: Contributor,
+  },
+  {
+    //테스트 플랫폼2
+    path: "/Manager",
+    name: "Manager",
+    component: Manager,
   },
   {
     path: '/chat-room/:username',

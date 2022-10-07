@@ -5,6 +5,10 @@ import vuetify from "./plugins/vuetify";
 import { store } from "./store/store.js"; // Vuex의 store파일 등록
 import axios from "./api/index";
 
+import Restaurant from "./views/hahaha/Restaurant";
+import Calendar from "./views/hahaha/Calendar";
+import Donations from "./views/hahaha/Donations";
+
 import CoachHome from "./views/coach/home/CoachHome";
 import CoachAttendance from "./views/coach/attendance/MainAttendance";
 import CoachTraining from "./views/coach/training/MainTraining";
@@ -59,6 +63,10 @@ export default EventBus;
 
 // Vue.use(Directives); // chat 관련
 Vue.component("apexchart", VueApexCharts); // 그래프 관련
+
+Vue.component("Restaurant", Restaurant);
+Vue.component("Calendar", Calendar);
+Vue.component("Donations", Donations);
 
 Vue.component("CoachHome", CoachHome);
 Vue.component("CoachAttendance", CoachAttendance);
