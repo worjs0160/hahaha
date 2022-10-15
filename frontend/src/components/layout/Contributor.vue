@@ -153,17 +153,25 @@
                   <h2 class="pre-600">전체 기부현황<span> ({{count}})</span></h2>
                 </div>
 
-                <v-row class="human" style="width:100%;" align="end">
-                  <v-col cols="3" class="pb-0">
-                    <p class="name pre-400" style="margin-left:12px;">식당명</p>
-                  </v-col>
-                  <v-col cols="5" class="pb-0">
-                    <p class="name pre-400" style="margin-left:12px;">제목</p>
-                  </v-col>
-                  <v-col cols="4" class="pb-0">
-                    <p class="name pre-400" style="margin-left:12px;">등록시간</p>
-                  </v-col>
-                </v-row>
+                <div class="humansBox" v-if="count==0">
+                  <div class="humans-top">
+                    <h2 class="pre-600">등록된 기부내역이 없습니다.</h2>
+                  </div>
+                </div>
+
+                <div v-if="count>0">
+                  <v-row class="human" style="width:100%;" align="end">
+                    <v-col cols="3" class="pb-0">
+                      <p class="name pre-400" style="margin-left:12px;">식당명</p>
+                    </v-col>
+                    <v-col cols="5" class="pb-0">
+                      <p class="name pre-400" style="margin-left:12px;">제목</p>
+                    </v-col>
+                    <v-col cols="4" class="pb-0">
+                      <p class="name pre-400" style="margin-left:12px;">등록시간</p>
+                    </v-col>
+                  </v-row>
+                </div>
 
                 <div class="humans-btm mt-4">
                   <v-row class="human" style="width:100%;" v-for="(item, idx) in this.donations" :key="`o-${idx}`" @click="select(item, donateTimes[idx].startPickUp, donateTimes[idx].endPickUp)">
