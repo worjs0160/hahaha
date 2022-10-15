@@ -2,8 +2,8 @@ const tabStore = {
   state: {
     idx: 0,
     subIdx: 0,
-    selectedTab: "Home",
-    selectedSubTab: "UserList",
+    selectedTab: "Contributor",
+    selectedSubTab: "",
   },
   getters: {
     getTab: function(state) {

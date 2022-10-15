@@ -1,6 +1,4 @@
 from django.contrib import admin
-
-from django.contrib import admin
 from .models import *
 
 @admin.register(DonateInfo)
@@ -10,13 +8,14 @@ class CustomDonateInfoAdmin(admin.ModelAdmin):
             "기본정보",
             {
                 "fields": [
-                    "donater",
+                    "donator",
                     "foodName",
                     "startPickUp",
                     "endPickUp",
                     "comment",
                     "endTime",
                     "foodImage",
+                    "commentImage",
                     # "createdTime",
                     # "modifiedTime",
                 ]
@@ -25,13 +24,58 @@ class CustomDonateInfoAdmin(admin.ModelAdmin):
     ]
     list_display = (
         "id",
-        "donater",
+        "donator",
         "foodName",
         "startPickUp",
         "endPickUp",
         "comment",
         "endTime",
-        "foodImage",
         "createdTime",
         "modifiedTime",
+    )
+
+@admin.register(donateImage)
+class CustomDonateImageAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (
+            "기본정보",
+            {
+                "fields": (
+                    "createUser",
+                    "width",
+                    "height",
+                    "images",
+                    "todayOrder",
+                )
+            }
+        )
+    ]
+    list_display = (
+        "createUser",
+        "images",
+        "createdTime",
+        "createUser",
+    )
+
+@admin.register(activityImage)
+class CustomActivityImageAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (
+            "기본정보",
+            {
+                "fields": (
+                    "createUser",
+                    "width",
+                    "height",
+                    "images",
+                    "todayOrder",
+                )
+            }
+        )
+    ]
+    list_display = (
+        "createUser",
+        "images",
+        "createdTime",
+        "createUser",
     )

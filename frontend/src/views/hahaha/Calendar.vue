@@ -1,7 +1,7 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" class="mt-5">
     <v-col cols="12" align="center">
-      <div class="width870 height632 main-box-wrap" style="padding: 12px 24px 24px;">
+      <div class="calendarSize main-box-wrap" style="padding: 12px 24px 24px;">
         <FullCalendar :options="calendarOptions" />
       </div>
     </v-col>
@@ -42,6 +42,9 @@ export default {
       ]
     },
   }),
+  async created() {
+    await this.getDonations();
+  },
   watch: {
     // "data.name": function() {
     //   if(!this.data.name) {
@@ -51,10 +54,21 @@ export default {
     // },
   },
   methods: {
-    // next() {
-    //   this.checkSmsNumber()
-    //   // this.find_id();
-    // },
+    async getDonations(){
+      await this.$axios({
+        method: "GET",
+        url:"donates/api/donateInfo/"
+      }).then((res) => {
+        this.calendarOptions.events = []
+        for(var a=0; a<res.data.length; a++){
+          this.calendarOptions.events.push({
+            title: res.data[a].foodName,
+            start: res.data[a].startPickUp,
+            end: res.data[a].endPickUp,
+          })
+        }
+      })
+    },
   },
 };
 </script>
@@ -64,17 +78,15 @@ export default {
     display: flex;
     justify-content: space-between;
   }
-  .width870 {
+  .calendarSize {
     width:870px;
+    height:631px;
   }
   .width270 {
     width: 270px;
   }
   .paddingtop30 {
     padding-top: 30px !important;
-  }
-  .height632 {
-    height: 632px;
   }
   .calendarWrap .header {
     width: 100%;

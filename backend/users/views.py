@@ -30,6 +30,10 @@ from .filters import *
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    filter_backends = [
+        filters.DjangoFilterBackend,
+    ]
+    filter_fields = ["userType"]
 
 class UserRegisterViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -38,9 +42,9 @@ class UserRegisterViewSet(viewsets.ModelViewSet):
     filter_backends = [
         filters.DjangoFilterBackend,
     ]
-    filter_fields = ["name"]
+    filter_fields = ["storeMaster"]
 
-    # users/api/regist/chk_username/
+    # users/api/userRegist/chk_username/
     @action(detail=False, methods=["post"])
     def chk_username(self, request):
         try:
@@ -131,6 +135,7 @@ def login(request):
                 reqData = {
                     "msg": "로그인 성공",
                     "user_id": loginRes.id,
+                    "userType": obj.userType,
                 }
                 reqData["tokens"] = tokens  # 반환 데이터 딕셔너리 병합
                 return JsonResponse(reqData, status=200)

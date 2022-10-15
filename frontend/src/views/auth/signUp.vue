@@ -2,7 +2,7 @@
   <v-container class="singUpinBox" style="height:100%; padding: 0; overflow: hidden;">
     <v-window v-model="step" touchless>
       <v-window-item :value="1">
-        <div class="manage-val1-wrap" style="padding: 24px;">
+        <div class="manage-val1-wrap" style="padding: 12px;">
           <div class="manage-val1-title">
             <p class="pre-700">기본정보</p>
           </div>
@@ -15,9 +15,9 @@
               placeholder="아이디를 입력해 주세요"
               v-model="data.username"
             />
-            <!-- <button class="id-chk-btn pre-400" type="button" @click="validId">
+            <button class="id-chk-btn pre-400" type="button" @click="validId">
               중복 확인
-            </button> -->
+            </button>
           </div>
 
           <div class="manage-val1-pw1Box manage-val1-inputBox">
@@ -38,33 +38,57 @@
             />
           </div>
           <span class="manage-val1-errBox pre-400" style="color: red;">
-            오류 메세지 위치
+            {{err.basicMessage}}
           </span>
 
           <div class="manage-val1-nameBox manage-val1-inputBox mt-7">
-            <h2>대표자 성함</h2>
+            <h2>대표자 성함<span class="manage-val1-errBox pre-400" style="color: red;"> *</span></h2>
             <input
               type="text"
-              placeholder="성함을 입력해 주세요"
-              v-model="data.name"
+              placeholder="성함을 입력해 주세요(필수)"
+              v-model="data.storeMaster"
             />
           </div>
 
           <div class="manage-val1-nameBox manage-val1-inputBox">
-            <h2>가게이름</h2>
+            <h2>가게이름<span class="manage-val1-errBox pre-400" style="color: red;"> *</span></h2>
             <input
               type="text"
-              placeholder="가게이름을 입력해 주세요"
-              v-model="data.restaurantName"
+              placeholder="가게이름을 입력해 주세요(필수)"
+              v-model="data.storeName"
             />
           </div>
 
-          <div class="manage-val1-nameBox manage-val1-inputBox">
-            <h2>가게 주소</h2>
+          <div class="manage-value1-idBox manage-val1-inputBox mt-5">
+            <h2>가게주소</h2>
+            <input
+              class="inputBox-id"
+              type="text"
+              placeholder="* 우편번호(주소검색)"
+              v-model="data.userZip"
+              
+            />
+            <button class="id-chk-btn pre-400" type="button" @click="showDaum">
+              주소 검색
+            </button>
+          </div>
+
+          <div class="manage-val1-pw1Box manage-val1-inputBox">
+            <h2></h2>
             <input
               type="text"
-              placeholder="주소를 입력해 주세요"
-              v-model="data.addr"
+              placeholder="* 기본주소(주소검색)"
+              v-model="data.userAddr1"
+              
+            />
+          </div>
+
+          <div class="manage-val1-pw2Box manage-val1-inputBox mb-5">
+            <h2></h2>
+            <input
+              type="text"
+              placeholder="상세주소(입력해 주세요)"
+              v-model="data.userAddr2"
             />
           </div>
 
@@ -73,9 +97,12 @@
             <input
               type="text"
               placeholder="전화번호를 입력해 주세요(-제외)"
-              v-model="data.number"
+              v-model="data.phone"
             />
           </div>
+          <span class="manage-val1-errBox pre-400" style="color: red;">
+            {{err.infoMessage}}
+          </span>
         </div>
         <!--e:manage-val1-wrap-->
       </v-window-item>
@@ -103,73 +130,36 @@
 
           <div class="manage-value1-idBox manage-val1-inputBox">
             <h2>아이디</h2>
-            <p class="pre-400">아이디예시</p>
+            <p class="pre-400">{{data.username}}</p>
           </div>
 
           <div class="manage-val1-nameBox manage-val1-inputBox">
             <h2>가게이름</h2>
-            <p class="pre-400">이름예시</p>
+            <p class="pre-400">{{data.storeName}}</p>
           </div>
 
-          <div class="manage-val1-pw2Box manage-val1-inputBox">
-            <h2>주소</h2>
-            <p>주소예시</p>
+          <div class="manage-val1-nameBox manage-val1-inputBox">
+            <h2>가게이름</h2>
+            <p class="pre-400">{{data.storeName}}</p>
           </div>
 
           <div class="manage-val1-pw2Box manage-val1-inputBox">
             <h2>대표자</h2>
-            <p>대표자예시</p>
+            <p>{{data.storeMaster}}</p>
           </div>
 
           <div class="manage-val1-pw2Box manage-val1-inputBox">
             <h2>연락처</h2>
-            <p>연락처 예시</p>
+            <p>{{data.phone}}</p>
           </div>
         </div>
         <!--e:manage-val4-wrap-->
       </v-window-item>
     </v-window>
     <v-row class="manage-btnBox" justify="end" style="width:500px; padding: 24px; margin:0;">
-      <v-col align="start" v-if="step > 0">
-        <v-btn class="preBtn" @click="backToHome()" color="buttonerrer" v-if="step == 1">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="#646464"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9 12C9.00588 12.217 9.08227 12.403 9.24094 12.5705L13.8129 17.2892C13.9481 17.4256 14.1068 17.5 14.3007 17.5C14.6944 17.5 15 17.1776 15 16.7621C15 16.5637 14.9236 16.3777 14.7884 16.2351L10.6748 12L14.7884 7.76494C14.9236 7.62232 15 7.4425 15 7.23788C15 6.82244 14.6944 6.5 14.3007 6.5C14.1126 6.5 13.9481 6.57441 13.8129 6.71082L9.24094 11.4357C9.0764 11.597 9 11.783 9 12Z"
-              stroke-width="0.5"
-            />
-          </svg>
-          이전
-        </v-btn>
+      <v-col align="start" v-if="step == 1">
+        <v-btn @click="backToHome()">이전</v-btn>
       </v-col>
-      <!-- <v-col align="end" v-if="step == 2 && attValidFlag == true">
-        <v-btn class="nextBtn" @click="next" color="buttonsuccess">
-          다음
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="#49ADA9"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 12C14.9941 11.783 14.9177 11.597 14.7591 11.4295L10.1871 6.71082C10.0519 6.57441 9.89324 6.5 9.69931 6.5C9.30558 6.5 9 6.82244 9 7.23788C9 7.4363 9.0764 7.62232 9.21156 7.76494L13.3252 12L9.21156 16.2351C9.0764 16.3777 9 16.5575 9 16.7621C9 17.1776 9.30558 17.5 9.69931 17.5C9.88737 17.5 10.0519 17.4256 10.1871 17.2892L14.7591 12.5643C14.9236 12.403 15 12.217 15 12Z"
-              stroke-width="0.5"
-            />
-          </svg>
-        </v-btn>
-      </v-col> -->
-
-      <!--테스트용 다음버튼-->
-      <!-- <v-col align="end">
-        <v-btn @click="next" color="gray">다음</v-btn>
-      </v-col> -->
-
       <v-col align="end" v-if="step == 1">
         <v-btn @click="signup()">계정 생성</v-btn>
       </v-col>
@@ -188,58 +178,194 @@ export default {
       data:{
         username : "",
         password : "",
-        restaurantName : "",
-        addr : "",
-        name : "",
-        number : "",
+        passwordValid : "",
+        storeName : "",
+        userZip : "",
+        userAddr1 : "",
+        userAddr2 : "",
+        storeMaster : "",
+        phone : "",
+        userType : "1",
       },
+      err: {
+        basicMessage: null,
+        infoMessage: null,
+      },
+      idValidFlag: false,
+      validFlag: false,
+      infoValidFlag: false,
     };
-  },
-  created() {
-    // this.$axios({
-    //   method: "GET",
-    //   url: "https://api.ip.pe.kr/",
-    // })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   },
   methods: {
     signup() {
-      this.step = 2
-      console.log("생성완료")
-      //계정 생성
-      // await this.$axios({
-      //     method: 'POST',
-      //     url: "users/api/empRegist/",
-      //     data: this.data
-      //   })
-      //   .then(async (res) => {
-      //     this.createId = res.data.id
-      //     if (this.allowedIP) {
-      //       this.pushIP(this.allowedIP, res.data.id);
-      //     }
-      //     this.data.allowedIP = []; //계정 생성후 다음 계정 생성을 위해 허용IP 리스트 비워주기
-      //     this.step = 4;
-      //     this.$store.dispatch("callToast", {
-      //       msg: "성공적으로 선수를 등록하였습니다.",
-      //       result: "success",
-      //     });
-      //   })
-      //   .catch(() => {
-      //     this.$store.dispatch("callToast", {
-      //       msg: "정보입력의 유형이 올바르지 않습니다. 정확히 입력해 주세요.",
-      //       result: "error",
-      //     });
-      //   });
+      if(this.idValidFlag && this.validFlag && this.infoValidFlag){
+        this.$axios({
+            method: 'POST',
+            url: "users/api/userRegist/",
+            data: this.data
+          })
+          .then(() => {
+            this.step = 2;
+            this.$store.dispatch("callToast", {
+              msg: "성공적으로 계정을 생성하였습니다.",
+              result: "success",
+            });
+          })
+          .catch(() => {
+            this.$store.dispatch("callToast", {
+              msg: "정보입력의 유형이 올바르지 않습니다. 정확히 입력해 주세요.",
+              result: "error",
+            });
+          });
+      }
+      else {
+        this.basicValid()
+        this.infoValid()
+      }
     },
     // router 이용하여 이동할 페이지 선언
     backToHome: function() {
       var router = this.$router;
       return router.push({ name: "Login" });
+    },
+    validId() {
+      let check = /[a-z0-9]{5,20}/;
+      let checkEng_A = /[A-Z]/;
+      if (!this.data.username) {
+        this.err.basicMessage = "* 아이디는 필수 정보입니다.";
+      } else if (
+        check.test(this.data.username) == false ||
+        checkEng_A.test(this.data.username) == true
+      ) {
+        this.err.basicMessage =
+          "* 아이디는 5~20자의 영문 소문자, 숫자만 사용 가능합니다.";
+      } else {
+        this.$axios
+          .post("users/api/userRegist/chk_username/", {
+            username: this.data.username,
+          })
+          .then((res) => {
+            this.idValidFlag = true;
+            this.basicValid();
+            alert(res.data.msg);
+          })
+          .catch((err) => {
+            console.log(err.response);
+            alert(err.response.data.msg);
+          });
+      }
+    },
+    basicValid() {
+      //아이디부터 비밀번호까지 순서대로 유효성 체크하는 함수
+      this.validFlag = false; // 각 데이터의 내용을 바꾸면 검증 플래그 초기화
+      let check = /[a-z0-9]{5,20}/;
+      let checkEng_A = /[A-Z]/;
+      let checkNum1 = /[0-9a-zA-Z~!@#$%^&*()_+|<>?:{}]{8,}/;
+      let checkNum2 = /[0-9]/;
+      let checkSpc = /[~!@#$%^&*()_+|<>?:{}]/;
+      if (!this.data.username) {
+        this.err.basicMessage = "* 아이디는 필수 정보입니다.";
+      } else if (
+        check.test(this.data.username) == false ||
+        checkEng_A.test(this.data.username) == true
+      ) {
+        this.err.basicMessage =
+          "* 아이디는 5~20자의 영문 소문자, 숫자만 사용 가능합니다.";
+      } else if (!this.data.password) {
+        this.err.basicMessage = "* 비밀번호는 필수 정보입니다.";
+      } else if (
+        checkNum1.test(this.data.password) == false ||
+        checkSpc.test(this.data.password) == false ||
+        checkNum2.test(this.data.password) == false
+      ) {
+        this.err.basicMessage =
+          "* 비밀번호는 8자 이상, 특수문자, 숫자를 포함하여야 합니다.";
+      } else if (!this.data.passwordValid) {
+        this.err.basicMessage = "* 비밀번호 확인이 필요합니다.";
+      } else if (this.data.password != this.data.passwordValid) {
+        this.err.basicMessage = "* 비밀번호가 일치하지 않습니다.";
+      } else if (this.idValidFlag == false)
+        this.err.basicMessage = "* 아이디 중복검사가 필요합니다.";
+      else if (
+        this.data.username &&
+        this.data.password &&
+        this.data.passwordValid &&
+        this.idValidFlag
+      ) {
+        this.err.basicMessage = "";
+        this.validFlag = true;
+      }
+    },
+    infoValid(){
+      //필수기입란 검사
+      this.infoValidFlag = false
+      if(!this.data.storeMaster){
+        this.err.infoMessage = "* 대표자 성함은 필수 정보입니다.";
+      }
+      else if(!this.data.storeName){
+        this.err.infoMessage = "* 가게이름은 필수 정보입니다.";
+      }
+      else if(this.data.storeMaster && this.data.storeName){
+        this.err.infoMessage = "";
+        this.infoValidFlag = true;
+      }
+    },
+    showDaum() {
+      new window.daum.Postcode({
+        oncomplete: (data) => {
+          // 팝업에서 검색결과 항목 클릭했을 때 실행할 코드를 작성하는 부분
+          // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+          // 변수의 값이 없는 경우엔 공백('')값 가지므로, 이를 이용하여 분기
+          let fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+          let extraRoadAddr = ""; // 도로명 조합형 주소 변수
+          // 법정동명이 있을경우 추가한다. (법정리는 제외)
+          // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+          if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
+            extraRoadAddr += data.bname;
+          }
+          // 건물명이 있고, 공동주택일 경우 추가한다.
+          if (data.buildingName !== "" && data.apartment === "Y") {
+            extraRoadAddr +=
+              extraRoadAddr !== ""
+                ? ", " + data.buildingName
+                : data.buildingName;
+          }
+          // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+          if (extraRoadAddr !== "") {
+            extraRoadAddr = " (" + extraRoadAddr + ")";
+          }
+          // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+          if (fullRoadAddr !== "") {
+            fullRoadAddr += extraRoadAddr;
+          }
+          // 우편번호와 주소 정보를 해당 필드에 넣는다.
+          this.data.userZip = data.zonecode;
+          this.data.userAddr1 = fullRoadAddr;
+        },
+      }).open();
+    },
+  },
+  watch: {
+    "data.username": function() {
+      // 아이디 체크
+      this.idValidFlag = false; // 아이디 바꾸면 아이디 중복검증 플래그 초기화
+      this.basicValid();
+    },
+    "data.name": function() {
+      this.basicValid();
+    },
+    "data.password": function() {
+      // 비밀번호 체크 및 비밀번호 확인 체크
+      this.basicValid();
+    },
+    "passwordValid": function() {
+      this.basicValid();
+    },
+    "data.storeMaster": function() {
+      this.infoValid();
+    },
+    "data.storeName": function() {
+      this.infoValid();
     },
   },
 };
@@ -247,7 +373,7 @@ export default {
 
 <style>
   .singUpinBox {
-      width: 50% !important;
-      margin: 120px auto;
-    }
+    width: 50% !important;
+    margin: 120px auto;
+  }
 </style>

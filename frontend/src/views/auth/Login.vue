@@ -42,11 +42,8 @@
                 <v-btn text @click="moveToFindPW()">비밀번호 찾기</v-btn> -->
               </div>
               <!-- 로그인 버튼 col 영역 비율 4 차지-->
-              <button class="loginButton" type="button" @click="moveToHome(1)">
-                기부자 로그인
-              </button>
-              <button class="loginButton mt-3" type="button" @click="moveToHome(0)">
-                관리자 로그인
+              <button class="loginButton" type="button" @click="login()">
+                로그인
               </button>
               <button class="loginButton mt-3" type="button" @click="moveToHome(2)">
                 회원가입
@@ -84,15 +81,6 @@ export default {
     //     console.log(err);
     //   });
   },
-  // created() {
-  //   this.$axios.get("users/getIP/")
-  //   .then((res) => {
-  //     console.log(res)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  // },
   methods: {
     // router 이용하여 이동할 페이지 선언
     moveToSignup: function() {
@@ -129,36 +117,22 @@ export default {
     },
     // 로그인 함수 정의
     login() {
-      this.moveToHome();
-      // this.$axios({
-      //   method: "POST",
-      //   url: "users/login/",
-      //   data: this.data,
-      // })
-      //   .then((res) => {
-      //     // 요청 성공시 실행
-      //     // console.log(res);
-      //     this.$store.commit("setToken", res.data.tokens);
-      //     this.$store.commit("setId", res.data.user_id);
-      //     this.moveToHome();
-      //   })
-      //   .catch((err) => {
-      //     // 요청 실패시 실행
-      //     console.log(err.response);
-      //     alert(err.response.data.msg);
-      //     this.clearPW(); // 기존에 입력되어 있던 데이터 삭제
-      //   });
-    },
-    getIP() {
       this.$axios({
-        method: "GET",
-        url: "https://api.ip.pe.kr/",
+        method: "POST",
+        url: "users/login/",
+        data: this.data,
       })
         .then((res) => {
-          console.log(res);
+          // 요청 성공시 실행
+          this.$store.commit("setToken", res.data.tokens);
+          this.$store.commit("setId", res.data.user_id);
+          this.moveToHome(res.data.userType);
         })
         .catch((err) => {
-          console.log(err);
+          // 요청 실패시 실행
+          console.log(err.response);
+          alert(err.response.data.msg);
+          this.clearPW(); // 기존에 입력되어 있던 데이터 삭제
         });
     },
   },

@@ -14,6 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+        fields = "__all__"
 
     def validate_password(self, value):
         passwordValid = self.context["request"].data["passwordValid"]

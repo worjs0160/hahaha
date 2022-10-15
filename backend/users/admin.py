@@ -13,7 +13,9 @@ class CustomUserAdmin(admin.ModelAdmin):
                     "userType",
                     "storeMaster",
                     "storeName",
-                    "address",
+                    "userZip",
+                    "userAddr1",
+                    "userAddr2",
                     "phone",
                 ]
             },
@@ -25,6 +27,8 @@ class CustomUserAdmin(admin.ModelAdmin):
         "userType",
         "storeMaster",
         "storeName",
-        "address",
+        "userZip",
+        "userAddr1",
+        "userAddr2",
         "phone"
     )
