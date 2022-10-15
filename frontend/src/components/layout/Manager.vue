@@ -275,7 +275,7 @@ export default {
     dialogChange(state){
       this.dialogChangeState = state;
     },
-    commentItem(item, updateStartDate, updateStartTime, updateEndDate, updateEndTime, id){
+    commentItem(item, updateStartDate, updateStartTime, updateEndDate, updateEndTime){
       this.updateItem = JSON.parse(JSON.stringify(item));
       this.updateStartDate = JSON.parse(JSON.stringify(updateStartDate));
       this.updateStartTime = JSON.parse(JSON.stringify(updateStartTime));

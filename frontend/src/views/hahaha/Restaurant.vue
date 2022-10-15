@@ -14,7 +14,13 @@
               </v-col>
             </v-row>
 
-            <div class="humans-btm mt-3 pt-3 scroll-wrap" style="overflow-y:scroll; max-height: 550px;">
+            <div class="humans-btm mt-3 pt-3 scroll-wrap" style="overflow-y:scroll; max-height: 550px;" v-if="count==0">
+              <v-row class="human pl-5" style="width:100%; background: #fff5b0;">
+                등록된 가게가 없습니다.
+              </v-row>
+            </div>
+
+            <div class="humans-btm mt-3 pt-3 scroll-wrap" style="overflow-y:scroll; max-height: 550px;" v-if="count>0">
               <v-row class="human" style="width:100%; background: #fff5b0;" v-for="(item, idx) in this.users" :key="`o-${idx}`">
                 <v-col cols="12"><p class="name pre-400 hidden_txt_line">{{item.storeName}} ({{item.storeMaster}})</p></v-col>
               </v-row>
@@ -47,6 +53,7 @@ export default {
   },
   methods: {
     getUsers(){
+      this.users = []
       this.$axios({
         method: "GET",
         url:"users/api/user/?userType=1"

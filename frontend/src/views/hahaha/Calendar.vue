@@ -36,10 +36,7 @@ export default {
       handleWindowResize: false,
       //select: this.scheduleSelectDate, // 날짜를 드래그하여 클릭하면 해당 날짜 데이터가 들어옴(scheduleSelectDate함수 사용)
       //eventClick: this.scheduleClickData, // 이벤트 클릭하면 해당 데이터가 들어옴(scheduleClickData함수 사용)
-      events: [ // 데이터는 이런식으로 들어가면 됨
-        { title: 'event 1', start:'2022-10-01T13:00', end:'2022-10-05T00:01', startEditable:true}, // 띠 형식의 일정표시
-        { title: 'event 2', date: '2022-10-03' } // 점 + 날짜로 일정표시
-      ]
+      events: []
     },
   }),
   async created() {

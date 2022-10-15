@@ -376,4 +376,545 @@ export default {
     width: 50% !important;
     margin: 120px auto;
   }
+  .background{
+    background-color:rgba(240, 240, 240);
+    border-radius: 10px;
+  }
+  .manage-val1-wrap {}
+  .manage-val1-wrap .manage-val1-title {
+    margin-bottom: 32px;
+  }
+  .manage-val1-wrap .manage-val1-title p {
+    font-size: 18px;
+    color: #2e2e2e;
+    margin: 0;
+  }
+  .manage-val1-wrap .manage-val1-inputBox {
+    display: flex;
+    align-items: center;
+    height: 39px;
+    margin-bottom: 8px;
+  }
+  .manage-val1-wrap .manage-val1-inputBox h2 {
+    font-size: 16px;
+    color: #2e2e2e;
+    font-family: 'Pretendard-SemiBold';
+    width: 90px;
+    margin-right: 28px;
+  }
+  .manage-val1-wrap .manage-val1-inputBox input {
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+    height: 100%;
+    width: 370px;
+    padding: 0 12px;
+    font-size: 16px;
+    color: #000;
+    font-family: 'Pretendard-Regular';
+  }
+  .manage-val1-wrap .manage-val1-inputBox input::placeholder {
+    color: #b4b4b4;
+  }
+  .manage-val1-wrap .manage-val1-inputBox input:focus,
+  .manage-val1-wrap .manage-val1-inputBox button:focus {
+    outline-color: #49ada9;
+  }
+  .manage-val1-wrap .manage-val1-inputBox .inputBox-id {
+    width: 257px;
+  }
+  .manage-val1-wrap .manage-val1-inputBox .id-chk-btn {
+    font-size: 13px;
+    color: #49ada9;
+    background: #EFF9F8;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 107px;
+    margin-left: 6px;
+    transition: all .3s;
+  }
+  .manage-val1-wrap .manage-val1-inputBox .id-chk-btn:hover {
+    background: #49ada9;
+    color: #fff;
+  }
+  .manage-value1-errBox {
+    font-size: 13px;
+    color: red;
+  }
+  .manage-btnBox {
+    width: 100%;
+    margin-top: 44px;
+  }
+  .manage-btnBox .col {}
+  .manage-btnBox button {
+    width: 126px !important;
+    height: 48px !important;
+    background-color: #EFF9F8 !important;
+    border-radius: 10px;
+    box-shadow: none;
+    padding: 0 !important;
+    transition: all .5s;
+  }
+  .manage-btnBox button:hover {
+    background: #49ada9 !important;
+  }
+  .manage-btnBox button:hover span {
+    color: #fff !important;
+  }
+  .manage-btnBox button span {
+    font-family: 'Pretendard-Regular';
+    font-size: 18px;
+    color: #49ada9;
+    transition: all .5s;
+  }
+  .manage-btnBox button span svg {
+    transition: all .5s;
+  }
+  .manage-btnBox .nextBtn span svg {
+    margin-left: 14px;
+  }
+  .manage-btnBox button:hover span svg,
+  .manage-btnBox button:focus span svg {
+    fill: #fff !important;
+  }
+  .manage-btnBox .preBtn span svg {
+    margin-right: 14px;
+  }
+  .manage-btnBox .buttonsuccess {
+    background-color: #49ada9 !important;
+  }
+  .manage-btnBox .buttonsuccess span {
+    color: #fff !important;
+  }
+  .manage-btnBox .buttonsuccess span svg {
+    fill: #fff !important;
+  }
+  .manage-btnBox .buttonerrer {
+    background: #F5F5F5;
+  }
+  .manage-btnBox .buttonerrer span {
+    color: #646464;
+  }
+  .manage-btnBox .buttonerrer:hover {
+    background-color: rgb(242, 95, 95) !important;
+  }
+
+  .manage-val2-top {
+    display: flex;
+    flex-direction: column;
+  }
+  .manage-val2-title {
+    margin-bottom: 32px;
+  }
+  .manage-val2-title2 {
+    margin-bottom: 12px;
+  }
+  .manage-val2-title p {
+    font-size: 18px;
+    color: #2e2e2e;
+    margin: 0;
+  }
+  .manage-value2-top-inputBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .manage-value2-top-inputBox h2 {
+    font-size: 16px;
+    color: #2e2e2e;
+    font-family: 'Pretendard-Regular';
+    width: 97px;
+    margin-right: 28px;
+    font-weight: 500;
+  }
+  .inputBox-work-name {
+    width: 370px;
+    height: 39px;
+    padding: 0 12px;
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+    color: #000;
+    
+  }
+  .value2-selectBox {
+    width: 172px;
+    height: 39px;
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+  }
+  .value2-selectBox .v-input__slot {
+    height: 39px !important;
+    min-height: auto !important;
+  }
+  .inputBox-work-name::placeholder {
+    color: #989898;
+  }
+  .inputBox-work-name:focus,
+  .value2-selectBox:focus {
+    outline-color: #49ada9;
+  }
+  .times-selectBox {
+    display: flex;
+    align-items: center;
+  }
+  .times-selectBox span {
+    display: block;
+    margin: 0 8px;
+  }
+  .times-input {
+    width: 130px;
+    height: 39px;
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+  }
+  .times-selectBox fieldset {
+    display: none;
+  }
+  .input_label_position_transform  .times-selectBox label {
+    position: unset !important;
+  }
+  .v-select__slot {
+    display: flex;
+    align-items: center;
+  }
+  .v-application--is-ltr .v-text-field .v-input__append-inner {
+    margin: 0;
+    align-self: unset;
+  }
+  .manage-value2-top-inputBox .value-btnBox {}
+  .manage-value2-top-inputBox .value-btnBox button {
+    margin-right: 6px;
+    width: 34px !important;
+    min-width: auto !important;
+    height: 32px !important;
+    border-radius: 6px !important;
+    background-color: #B4B4B4 !important;
+    border: 0 !important;
+  }
+  .manage-value2-top-inputBox .value-btnBox span {
+    color: #fff;
+    font-family: 'Pretendard-Regular';
+    font-size: 20px;
+    font-weight: 400 !important; 
+  }
+  .v-btn-toggle > .v-btn.v-btn--active {
+    background-color: #0081C7 !important;
+    color: #fff !important;
+  }
+  .value2-errBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Pretendard-Regular';
+    margin-bottom: 30px;
+    width: 540px;
+  }
+  .value2-errBox .val2-err1 {
+    color: red;
+  }
+  .value2-errBox .val2-err2 {
+    color: #2e2e2e;
+    background-color: #49ada9;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #fff;
+    margin: 0;
+  }
+  .manage-val2-btm-info {
+    background-color: #E4F2F9;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 3px;
+    margin-bottom: 32px;
+    width: 495px;
+  }
+  .manage-val2-btm-info svg {
+    margin-right: 8px;
+  }
+  .manage-val2-btm-info p {
+    color: #0081c7;
+    font-size: 14px;
+    margin: 0;
+  }
+  .manage-value2-top-inputBox .v-text-field--rounded {
+    border-radius: 3px;
+    width: 370px;
+    height: 39px;
+  }
+  .val2-btm-selectBox {
+    width: 370px;
+    height: 39px;
+  }
+  .val2-btm-selectBox .v-input__slot {
+    height: 39px !important;
+    min-height: auto !important;
+  }
+  .manage-value2-top-inputBox {
+    width: 495px !important;
+  }
+  .v-text-field--rounded > .v-input__control > .v-input__slot {
+    padding: 0 12px;
+  }
+  .input_label_position_transform .v-text-field--outlined .v-label--active,
+  .input_label_position_transform .v-text-field .v-label--active {
+    transform:unset;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  .v-input--selection-controls {
+    margin-top: 16px;
+    padding-top: 0;
+  }
+  .v-input__slot {
+    margin-bottom: 0;
+  }
+  .v-input--switch__track {
+    border-radius: 16px;
+    width: 46px;
+    height: 26px;
+    left: -3px;
+    position: absolute;
+    opacity: 0.6;
+    right: 2px;
+    top: calc(50% - 13px);
+  }
+  .v-application--is-ltr .v-input--selection-controls__input {
+    margin-right: 15px;
+  }
+  .v-input--selection-controls .v-input__slot > .v-label {
+    font-family: 'Pretendard-Regular';
+    font-size: 15px;
+  }
+  .theme--light.v-input--switch .v-input--switch__track {
+    /* background-color: #008bd6; */
+  }
+  .v-input--switch:not(.v-input--switch--flat):not(.v-input--switch--inset) .v-input--switch__thumb {
+    color: #fff !important;
+  }
+  .v-application--is-ltr .v-text-field .v-label {
+    font-family: 'Pretendard-Regular';
+  }
+  .manage-val3-wrap {}
+  .manage-val3-wrap .manage-val3-header {
+    width: 100%;
+    height: 72px;
+    border-bottom: .5px solid #b4b4b4;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+  }
+  .manage-val3-wrap h1 {
+    font-size: 20px;
+    color: #2e2e2e;
+    font-weight: 600;
+  }
+  .manage-val3-wrap .imgBox {
+    width: 200px;
+    height: 200px;
+    margin-right: 32px;
+  }
+  .manage-val3-wrap .imgBox-hidden {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .manage-val3-wrap .left-emptyBox {
+    width: 200px;
+    height: 200px;
+    margin-right: 32px;
+  }
+  .manage-val3-wrap .imgBox img {
+    width: 100%;
+  }
+  .manage-val3-wrap .imgBox .v-input {
+    flex: none !important;
+  }
+  .manage-val3-wrap .imgBox .v-input button {
+    margin-right: 20px;
+  }
+  .manage-val3-wrap .val3Box1 {
+    display: flex;
+  }
+  .defaultBox h2 {
+    font-size: 18px;
+    color: #2e2e2e;
+    margin-bottom: 32px;
+  }
+  .defaultBox .val3-inputBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .defaultBox .val3-inputBox h3 {
+    font-size: 16px;
+    color: #000;
+    font-family: 'Pretendard-Regular';
+    font-weight: 500;
+    width: 90px;
+    margin-right: 10px;
+  }
+  .defaultBox .val3-inputBox input {
+    width: 370px;
+    height: 39px;
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+    font-size: 16px;
+    color: #000;
+    padding: 0 12px;
+    font-family: 'Pretendard-Regular';
+    font-weight: 500;
+  }
+  .defaultBox .val3-inputBox input::placeholder {
+    color: #989898;
+  }
+   .defaultBox .val3-inputBox input:focus,
+   .addressBox-1 button:focus,
+   input:focus,
+   textarea:focus {
+    outline-color: #49ada9 !important;
+  }
+  .genderBox {
+    display: flex;
+    align-items: center;
+  }
+  .genderBox {
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Pretendard-Regular';
+    cursor: pointer;
+  }
+  .genderBox button {
+    transition: all .5s;
+  }
+  .gender-male {
+    border-radius: 3px 0px 0px 3px;
+    width: 185px;
+    height: 39px;
+    border: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #989898;
+  }
+  .gender-woman {
+    border-radius: 0px 3px 3px 0px;
+    width: 185px;
+    height: 39px;
+    border: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #989898;
+  }
+  /* .gender-male:hover,
+  .gender-woman:hover {
+    background: #47a7da !important;
+    border: 1px solid #47a7da !important;
+    color: #fff !important;
+  } */
+  .gender-active {
+    background: #0081c7 !important;
+    border: 1px solid #0081c7 !important;
+    color: #fff !important;
+  }
+  .addressBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0 !important;
+  }
+  .addressBox > div {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .addressBox-1 {
+    align-items: center;
+  }
+  .addressBox-1 input {
+    width: 257px !important;
+  }
+  .addressBox-1 button {
+    width: 107px;
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eff9f8;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #49ada9;
+    margin-left: 6px;
+    transition: all .5s;
+  }
+  .addressBox-1 button:hover {
+    background-color: #49ada9;
+    color: #fff;
+  }
+  .address-emptyBox {
+    width: 90px;
+    margin-right: 10px;
+  }
+  .val3Box1 {
+    border-bottom: .5px solid #b4b4b4;
+  }
+  .val3Box3 {
+    border-bottom: 0;
+  }
+  .v-input {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .v-input input {
+    max-height: unset !important;
+  }
+  .val3Box1 .v-text-field__details {
+    display: none;
+  }
+  .v-select__selection--comma {
+    position: absolute;
+    left: 12px;
+    font-family: 'Pretendard-Regular';
+    font-size: 16px;
+  }
+  .val3Box1 .v-text-field.v-input--is-focused > .v-input__control > .v-input__slot:after {
+    display: none;
+  }
+  .val3-inputBox .input-right-p {
+    position: relative;
+    left: 10px;
+    top: 7px;
+    font-family: 'Pretendard-Regular';
+    font-size: 16px;
+  }
+  .input73 .times-selectBox .v-select__selection--comma {
+    left: 73px;
+  }
+  .manage-val4-wrap p {
+    margin: 0;
+  }
+  .areaColor {
+    background: #F5F5F5;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  .new-player-val2-input-agency {
+    border: 1px solid #e1e1e1;
+  }
+  .new-player-val2-input-agency div {
+    background: none !important;
+  }
+  .new-player-val2-input-ip {
+    background: rgba(0, 0, 0, 0.06);
+    border: 0 !important;
+  }
+  .print-h2 {
+    font-size: 18px !important;
+  }
 </style>

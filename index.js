@@ -3,8 +3,8 @@ import store from "../store/store";
 
 // axios 인스턴스 생성
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/", // 기본 백엔드 서버 주소
-  //baseURL: "http://13.125.77.26:8000/",
+  // baseURL: "http://127.0.0.1:8000/", // 기본 백엔드 서버 주소
+  baseURL: "http://54.180.178.255:8000/", // 백엔드 서버 주소
   headers: {
     Authorization: "JWT " + store.state.authStore.access_token,
     "Content-Type": "application/json",
@@ -63,8 +63,7 @@ instance.interceptors.response.use(
       console.log("새로운 토큰 요청");
 
       try {
-        const res = await axios.post("http://127.0.0.1:8000/users/refresh/", {
-        //const res = await axios.post("http://13.125.77.26:8000/users/refresh/", {
+        const res = await axios.post("http://54.180.178.255:8000/users/refresh/", {
           refresh: refreshToken,
         });
         console.log("액세스 토큰 재발급 성공");
@@ -80,8 +79,7 @@ instance.interceptors.response.use(
         sessionStorage.clear(); // 세션 저장소의 데이터 삭제
         console.log("액세스 토큰 재발급 실패(리프레시 토큰 만료)");
         alert("세션이 만료되었습니다 다시 로그인 해주세요.");
-        window.location.href = "http://127.0.0.1:8080/auth/login";
-        //window.location.href = "http://13.125.77.26:8000/auth/login";
+        window.location.href = "http://54.180.178.255:8080/auth/login";
       }
     }
     return Promise.reject(error);
